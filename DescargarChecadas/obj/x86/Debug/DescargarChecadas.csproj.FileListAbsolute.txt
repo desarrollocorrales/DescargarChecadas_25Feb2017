@@ -1,0 +1,14 @@
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\DescargarChecadas.exe.config
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\DescargarChecadas.exe
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\DescargarChecadas.pdb
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\FEncrypt.dll
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\MySql.Data.dll
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.csprojResolveAssemblyReference.cache
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.Form1.resources
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.GUIs.frmAcceso.resources
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.GUIs.frmConfiguracion.resources
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.Properties.Resources.resources
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.csproj.GenerateResource.Cache
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.exe
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.pdb
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\Interop.zkemkeeper.dll
