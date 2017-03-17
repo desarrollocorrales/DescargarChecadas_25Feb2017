@@ -22,9 +22,9 @@ namespace DescargarChecadas.Negocio
         }
 
 
-        public DateTime obtUltimaFecha()
+        public DateTime obtUltimaFecha(int numChec)
         {
-            return this._consultadatos.obtUltimaFecha();
+            return this._consultadatos.obtUltimaFecha(numChec);
         }
 
 
@@ -37,6 +37,15 @@ namespace DescargarChecadas.Negocio
         public bool conectaBase()
         {
             return this._consultadatos.conectaBase();
+        }
+
+
+        public void insertaNuevo(int idInterno)
+        {
+            bool existe = this._consultadatos.buscaIdInterno(idInterno);
+
+            if(!existe)
+                this._consultadatos.insertaNuevo(idInterno);
         }
     }
 }

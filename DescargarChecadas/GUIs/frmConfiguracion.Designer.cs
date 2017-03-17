@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracion));
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbNomChecador = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbPuerto = new System.Windows.Forms.TextBox();
             this.tbIP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,8 +47,10 @@
             this.tbContrasenia = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
-            this.tbNomChecador = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.tbNumChec = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +58,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.Location = new System.Drawing.Point(167, 460);
+            this.btnGuardar.Location = new System.Drawing.Point(167, 510);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(96, 30);
             this.btnGuardar.TabIndex = 0;
@@ -64,6 +68,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbNumChec);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cmbTipo);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.tbNomChecador);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbPuerto);
@@ -73,15 +81,36 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 160);
+            this.groupBox1.Size = new System.Drawing.Size(257, 210);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checador";
             // 
+            // tbNomChecador
+            // 
+            this.tbNomChecador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbNomChecador.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tbNomChecador.Location = new System.Drawing.Point(91, 105);
+            this.tbNomChecador.MaxLength = 50;
+            this.tbNomChecador.Name = "tbNomChecador";
+            this.tbNomChecador.Size = new System.Drawing.Size(147, 24);
+            this.tbNomChecador.TabIndex = 5;
+            this.tbNomChecador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.5F);
+            this.label7.Location = new System.Drawing.Point(19, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 14);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Checador:";
+            // 
             // tbPuerto
             // 
             this.tbPuerto.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tbPuerto.Location = new System.Drawing.Point(76, 60);
+            this.tbPuerto.Location = new System.Drawing.Point(91, 60);
             this.tbPuerto.MaxLength = 10;
             this.tbPuerto.Name = "tbPuerto";
             this.tbPuerto.Size = new System.Drawing.Size(147, 24);
@@ -91,7 +120,7 @@
             // tbIP
             // 
             this.tbIP.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tbIP.Location = new System.Drawing.Point(76, 30);
+            this.tbIP.Location = new System.Drawing.Point(91, 30);
             this.tbIP.MaxLength = 20;
             this.tbIP.Name = "tbIP";
             this.tbIP.Size = new System.Drawing.Size(147, 24);
@@ -102,7 +131,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.5F);
-            this.label2.Location = new System.Drawing.Point(18, 65);
+            this.label2.Location = new System.Drawing.Point(33, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 14);
             this.label2.TabIndex = 1;
@@ -112,7 +141,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.5F);
-            this.label1.Location = new System.Drawing.Point(44, 35);
+            this.label1.Location = new System.Drawing.Point(59, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 14);
             this.label1.TabIndex = 0;
@@ -130,7 +159,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.tbUsuario);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(15, 178);
+            this.groupBox2.Location = new System.Drawing.Point(15, 228);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(257, 267);
             this.groupBox2.TabIndex = 0;
@@ -221,32 +250,55 @@
             this.tbUsuario.Size = new System.Drawing.Size(235, 24);
             this.tbUsuario.TabIndex = 8;
             // 
-            // tbNomChecador
+            // label8
             // 
-            this.tbNomChecador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbNomChecador.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tbNomChecador.Location = new System.Drawing.Point(76, 105);
-            this.tbNomChecador.MaxLength = 50;
-            this.tbNomChecador.Name = "tbNomChecador";
-            this.tbNomChecador.Size = new System.Drawing.Size(147, 24);
-            this.tbNomChecador.TabIndex = 5;
-            this.tbNomChecador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8.5F);
+            this.label8.Location = new System.Drawing.Point(46, 140);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 14);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Tipo:";
             // 
-            // label7
+            // cmbTipo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 8.5F);
-            this.label7.Location = new System.Drawing.Point(4, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 14);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Checador:";
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "BlackWhite",
+            "TFT"});
+            this.cmbTipo.Location = new System.Drawing.Point(91, 135);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(147, 24);
+            this.cmbTipo.TabIndex = 7;
+            // 
+            // tbNumChec
+            // 
+            this.tbNumChec.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbNumChec.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tbNumChec.Location = new System.Drawing.Point(91, 165);
+            this.tbNumChec.MaxLength = 50;
+            this.tbNumChec.Name = "tbNumChec";
+            this.tbNumChec.Size = new System.Drawing.Size(147, 24);
+            this.tbNumChec.TabIndex = 9;
+            this.tbNumChec.Text = "1";
+            this.tbNumChec.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.5F);
+            this.label9.Location = new System.Drawing.Point(6, 170);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 14);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Núm. Chec.:";
             // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 507);
+            this.ClientSize = new System.Drawing.Size(287, 554);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
@@ -286,5 +338,9 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.TextBox tbNomChecador;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbNumChec;
+        private System.Windows.Forms.Label label9;
     }
 }

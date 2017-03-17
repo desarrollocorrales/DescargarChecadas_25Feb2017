@@ -49,6 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -121,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Overtime-48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TFT\TFT.csproj">
+      <Project>{5B04C2BF-DBB2-4076-AD1C-73D413F2C94D}</Project>
+      <Name>TFT</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

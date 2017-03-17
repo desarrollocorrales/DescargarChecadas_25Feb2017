@@ -47,11 +47,11 @@ namespace DescargarChecadas.Datos
         }
 
         // obtiene la ultima fecha
-        public DateTime obtUltimaFecha()
+        public DateTime obtUltimaFecha(int numChec)
         {
             DateTime result = new DateTime();
 
-            string sql = "SELECT MAX(fecha_hora) AS fecha_hora FROM checadas";
+            string sql = "SELECT MAX(fecha_hora) AS fecha_hora FROM checadas where no_checador = @numC";
 
             // define conexion con la cadena de conexion
             using (var conn = this._conexion.getConexion())
@@ -62,6 +62,8 @@ namespace DescargarChecadas.Datos
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
+
+                    cmd.Parameters.AddWithValue("@numC", numChec);
 
                     ManejoSql res = Utilerias.EjecutaSQL(sql, cmd);
 
@@ -90,7 +92,7 @@ namespace DescargarChecadas.Datos
         // inserta el registro
         public void insertaRegistro(AttLogs log)
         {
-            string sql = "insert into checadas (id_interno, fecha_hora, no_checador) values (@idIn, @fecha, 1)";
+            string sql = "insert into checadas (id_interno, fecha_hora, no_checador) values (@idIn, @fecha, @noCh)";
 
             int rows = 0;
 
@@ -105,6 +107,7 @@ namespace DescargarChecadas.Datos
 
                     // define parametros
                     cmd.Parameters.AddWithValue("@idIn", log.enrolIdNumber);
+                    cmd.Parameters.AddWithValue("@noCh", log.noChecador);
 
                     string fechaFormato = "yyyy-MM-dd HH:mm";
 
@@ -135,6 +138,73 @@ namespace DescargarChecadas.Datos
                 }
                 
             }
+        }
+
+        // crea un nuevo usuario como pendiente
+        public void insertaNuevo(int idInterno)
+        {
+            string sql = "INSERT INTO empleados(id_interno, id_depto, nombre, activado, variado) VALUES (@idInterno, 1, '<PENDIENTE>', 1, 1)";
+
+            int rows = 0;
+
+            using (var conn = this._conexion.getConexion())
+            {
+                conn.Open();
+                string error = string.Empty;
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    // define parametros
+                    cmd.Parameters.AddWithValue("@idInterno", idInterno);
+
+                    ManejoSql res = Utilerias.EjecutaSQL(sql, ref rows, cmd);
+
+                    if (!res.ok) throw new Exception(res.numErr + ": " + res.descErr);
+                }
+
+            }
+        }
+
+        // busca si ya esta dado de alta el registro
+        public bool buscaIdInterno(int idInterno)
+        {
+            bool result = false;
+
+            string sql = "SELECT id_interno FROM empleados WHERE id_interno = @idInterno";
+
+            // define conexion con la cadena de conexion
+            using (var conn = this._conexion.getConexion())
+            {
+                // abre la conexion
+                conn.Open();
+
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    cmd.Parameters.AddWithValue("@idInterno", idInterno);
+
+                    ManejoSql res = Utilerias.EjecutaSQL(sql, cmd);
+
+                    if (res.ok)
+                    {
+                        if (res.reader.HasRows)
+                            result = true;
+                        else
+                            result = false;
+                    }
+                    else
+                        throw new Exception(res.numErr + ": " + res.descErr);
+
+                    // cerrar el reader
+                    res.reader.Close();
+
+                }
+            }
+
+            return result;
         }
     }
 }

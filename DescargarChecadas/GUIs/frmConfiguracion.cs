@@ -68,6 +68,9 @@ namespace DescargarChecadas.GUIs
                     }
                 }
 
+                if (this.cmbTipo.SelectedIndex == -1)
+                    throw new Exception("Seleccione el tipo de Checador");
+
                 // define texto del archivo
                 string cadena = string.Empty;
 
@@ -78,6 +81,8 @@ namespace DescargarChecadas.GUIs
                 cadena += "C_" + this.tbContrasenia.Text + "||";
                 cadena += "B_" + this.tbBaseDeDatos.Text + "||";
                 cadena += "N_" + this.tbNomChecador.Text + "||";
+                cadena += "T_" + this.cmbTipo.SelectedItem + "||";
+                cadena += "H_" + this.tbNumChec.Text + "||";
 
 
                 // prosigue con la creación del archivo
@@ -97,8 +102,12 @@ namespace DescargarChecadas.GUIs
 
                     Modelos.ConectionString.ip = this.tbIP.Text;
                     Modelos.ConectionString.puerto = this.tbPuerto.Text;
+                    Modelos.ConectionString.tipoCh = (string)this.cmbTipo.SelectedItem;
+                    Modelos.ConectionString.numCh = Convert.ToInt16(this.tbNumChec.Text);
 
                     MessageBox.Show("Se cargó correctamente la información", "Configuración", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     
                     this.Close();
                 }
@@ -140,13 +149,15 @@ namespace DescargarChecadas.GUIs
                     {
                         string[] list = result.resultado.Split(new string[] { "||" }, StringSplitOptions.None);
 
-                        this.tbIP.Text = list[0].Substring(2);          // IP
-                        this.tbPuerto.Text = list[1].Substring(2);      // PUERTO
-                        this.tbServidor.Text = list[2].Substring(2);    // servidor
-                        this.tbUsuario.Text = list[3].Substring(2);     // usuario
-                        this.tbContrasenia.Text = list[4].Substring(2); // contraseña
-                        this.tbBaseDeDatos.Text = list[5].Substring(2); // base de datos
-                        this.tbNomChecador.Text = list[6].Substring(2); // base de datos
+                        this.tbIP.Text = list[0].Substring(2);              // IP
+                        this.tbPuerto.Text = list[1].Substring(2);          // PUERTO
+                        this.tbServidor.Text = list[2].Substring(2);        // servidor
+                        this.tbUsuario.Text = list[3].Substring(2);         // usuario
+                        this.tbContrasenia.Text = list[4].Substring(2);     // contraseña
+                        this.tbBaseDeDatos.Text = list[5].Substring(2);     // base de datos
+                        this.tbNomChecador.Text = list[6].Substring(2);     // nombre del checador
+                        this.cmbTipo.SelectedItem = list[7].Substring(2);   // tipo del checador
+                        this.tbNumChec.Text = list[8].Substring(2);   // numero del checador
                     }
                 }
             }

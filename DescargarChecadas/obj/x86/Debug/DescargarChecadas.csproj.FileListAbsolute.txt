@@ -12,3 +12,5 @@ G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarC
 G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.exe
 G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\obj\x86\Debug\DescargarChecadas.pdb
 G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\Interop.zkemkeeper.dll
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\TFT.dll
+G:\Github\DescargarChecadas_25Feb2017\DescargarChecadas\bin\Debug\TFT.pdb

@@ -9,10 +9,14 @@ namespace DescargarChecadas.Datos
     {
         void pruebaConn();
 
-        DateTime obtUltimaFecha();
+        DateTime obtUltimaFecha(int numChec);
 
         void insertaRegistro(Modelos.AttLogs res);
 
         bool conectaBase();
+
+        void insertaNuevo(int idInterno);
+
+        bool buscaIdInterno(int idInterno);
     }
 }

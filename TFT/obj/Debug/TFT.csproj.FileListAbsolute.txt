@@ -1,0 +1,5 @@
+G:\Github\DescargarChecadas_25Feb2017\TFT\bin\Debug\TFT.dll
+G:\Github\DescargarChecadas_25Feb2017\TFT\bin\Debug\TFT.pdb
+G:\Github\DescargarChecadas_25Feb2017\TFT\obj\Debug\TFT.dll
+G:\Github\DescargarChecadas_25Feb2017\TFT\obj\Debug\TFT.pdb
+G:\Github\DescargarChecadas_25Feb2017\TFT\obj\Debug\TFT.csprojResolveAssemblyReference.cache

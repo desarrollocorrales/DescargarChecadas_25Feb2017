@@ -22,8 +22,11 @@ namespace DescargarChecadas.Modelos
     public static class ConectionString
     {
         public static string conn { get; set; }
+
         public static string puerto { get; set; }
         public static string ip { get; set; }
+        public static string tipoCh { get; set; }
+        public static int numCh { get; set; }
     }
 
     public static class Utilerias
