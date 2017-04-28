@@ -69,13 +69,13 @@ namespace DescargarChecadas.Datos
 
                     if (res.ok)
                     {
-                        if (res.reader.HasRows)
-                            while (res.reader.Read())
-                            {
+                        while (res.reader.Read())
+                        {
+                            if (res.reader["fecha_hora"] == DBNull.Value)
+                                result = new DateTime(1900, 1, 1, 0, 0, 0);
+                            else
                                 result = Convert.ToDateTime(res.reader["fecha_hora"]);
-                            }
-                        else
-                            result = new DateTime();
+                        }
                     }
                     else
                         throw new Exception(res.numErr + ": " + res.descErr);

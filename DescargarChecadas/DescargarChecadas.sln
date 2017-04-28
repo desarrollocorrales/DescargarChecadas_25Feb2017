@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DescargarChecadas", "Descar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFT", "..\TFT\TFT.csproj", "{5B04C2BF-DBB2-4076-AD1C-73D413F2C94D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "descargasChecador", "..\descargasChecador\descargasChecador.vdproj", "{23C55976-17C7-4CB7-8237-DE18D74CFC63}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "descargasChecadorSetup", "..\descargasChecadorSetup\descargasChecadorSetup.vdproj", "{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +37,12 @@ Global
 		{5B04C2BF-DBB2-4076-AD1C-73D413F2C94D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5B04C2BF-DBB2-4076-AD1C-73D413F2C94D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5B04C2BF-DBB2-4076-AD1C-73D413F2C94D}.Release|x86.ActiveCfg = Release|Any CPU
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Debug|Any CPU.ActiveCfg = Debug
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Debug|x86.ActiveCfg = Debug
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Release|Any CPU.ActiveCfg = Release
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Release|Mixed Platforms.ActiveCfg = Release
-		{23C55976-17C7-4CB7-8237-DE18D74CFC63}.Release|x86.ActiveCfg = Release
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Debug|Any CPU.ActiveCfg = Debug
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Debug|x86.ActiveCfg = Debug
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Release|Any CPU.ActiveCfg = Release
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Release|Mixed Platforms.ActiveCfg = Release
+		{0AAC36EE-213E-4FDD-93CC-2D33A47CF357}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
