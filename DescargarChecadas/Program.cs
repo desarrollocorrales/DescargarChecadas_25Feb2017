@@ -13,9 +13,18 @@ namespace DescargarChecadas
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
+            }
+            catch (Exception Ex)
+            {
+                //Ex.
+                MessageBox.Show(Ex.ToString(), "Descarga Checadores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

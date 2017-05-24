@@ -17,13 +17,22 @@ namespace DescargarChecadas
     {
         IConsultasNegocio _consultasNegocio;
 
+        private bool _comEx = false;
+
         public Form1()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Descarga Checadores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         //Create Standalone SDK class dynamicly.
-        public zkemkeeper.CZKEM axCZKEM1 = new zkemkeeper.CZKEM();
+        public zkemkeeper.CZKEM axCZKEM1;// = new zkemkeeper.CZKEM();
         
         private bool _bIsConnected = false;//the boolean value identifies whether the device is connected
         private int iMachineNumber = 1;//the serial number of the device.After connecting the device ,this value will be changed.
@@ -117,6 +126,17 @@ namespace DescargarChecadas
                         this.lbChecador.Left = (this.ClientSize.Width - this.lbChecador.Width) / 2;
                     }
                 }
+
+                // inicializa librerias SDK checador
+                axCZKEM1 = new zkemkeeper.CZKEM();
+
+            }
+            catch (System.Runtime.InteropServices.COMException cex)
+            {
+                // MessageBox.Show(cex.Message, "Descarga Checadores COMEx", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Problemas con la conexion al Checador\nRevise si las librerías están correctamente instaladas.", 
+                    "Descarga Checadores COMEx", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this._comEx = true;
             }
             catch (Exception Ex)
             {
@@ -128,6 +148,9 @@ namespace DescargarChecadas
         {
             try
             {
+                if (this._comEx)
+                    throw new Exception("Problemas con la conexión al checador");
+
                 if (!string.IsNullOrEmpty(this.tbResultados.Text)) { this.tbResultados.Clear(); this.tbResultados.Refresh(); }
 
                 if (string.IsNullOrEmpty(Modelos.ConectionString.ip) ||
@@ -255,13 +278,16 @@ namespace DescargarChecadas
 
         private void agregarDetalle(string mensaje)
         {
-            try
-            {
-                this.tbResultados.Paste(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + mensaje + Environment.NewLine);
-            }
-            catch
-            {
-            }
+            // la instruccion textbox.Paste() pega un texto en el TexBox y situa el cursor al final de todo el mensaje
+            // solo que traba la aplicacion, no se deja de ejecutar pero si se le da click en alguna
+            // parte de la aplicacion se pasma ya no muestra el texto pegado hasta que acabe de  
+
+            //this.tbResultados.Paste(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + mensaje + Environment.NewLine);
+
+            this.tbResultados.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + mensaje + Environment.NewLine);
+
+            Application.DoEvents();
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
